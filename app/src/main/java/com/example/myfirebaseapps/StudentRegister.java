@@ -178,14 +178,14 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
                     dialog.cancel();
                     uid = mAuth.getCurrentUser().getUid();
                     Student student = new Student(uid, email, pass, name, nim, gender, age, address);
-                    Log.d("isi form", uid);
-                    Log.d("isi form", email);
-                    Log.d("isi form", pass);
-                    Log.d("isi form", name);
-                    Log.d("isi form", nim);
-                    Log.d("isi form", gender);
-                    Log.d("isi form", age);
-                    Log.d("isi form", address);
+//                    Log.d("isi form", uid);
+//                    Log.d("isi form", email);
+//                    Log.d("isi form", pass);
+//                    Log.d("isi form", name);
+//                    Log.d("isi form", nim);
+//                    Log.d("isi form", gender);
+//                    Log.d("isi form", age);
+//                    Log.d("isi form", address);
                     mDatabase.child("student").child(uid).setValue(student).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

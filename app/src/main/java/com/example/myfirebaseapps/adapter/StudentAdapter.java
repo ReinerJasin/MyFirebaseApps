@@ -53,11 +53,11 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.CardView
     public void onBindViewHolder (@NonNull final StudentAdapter.CardViewViewHolder holder, int position) {
         final Student student = getListStudent().get(position);
         holder.cv_name_student.setText(student.getName());
-        holder.cv_nim_student.setText(student.getNim());
-        holder.cv_email_student.setText(student.getEmail());
-        holder.cv_gender_student.setText(student.getGender());
-        holder.cv_age_student.setText(student.getAge());
-        holder.cv_address_student.setText(student.getAddress());
+        holder.cv_nim_student.setText("NIM : " + student.getNim());
+        holder.cv_email_student.setText("Email : " + student.getEmail());
+        holder.cv_gender_student.setText("Gender : " + student.getGender());
+        holder.cv_age_student.setText("Age : " + student.getAge());
+        holder.cv_address_student.setText("Address :\n" + student.getAddress());
 
     }
 

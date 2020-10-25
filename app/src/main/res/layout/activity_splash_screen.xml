@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color1"
     tools:context=".SplashScreen">
 
     <ImageView
@@ -24,7 +25,7 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="d'Student"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/color5"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
