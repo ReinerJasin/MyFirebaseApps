@@ -7,6 +7,16 @@
     android:background="@color/color1"
     tools:context=".AddCourse">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_AddCourse"
+        app:srcCompat="@drawable/gradient" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_AddCourse"
         android:layout_width="match_parent"
@@ -91,13 +101,14 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/my_button_bg"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Add Course"
-        android:textColor="@color/design_default_color_background"
+        android:textColor="@color/color5"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

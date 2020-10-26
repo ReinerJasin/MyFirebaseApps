@@ -7,6 +7,16 @@
     android:background="@color/color1"
     tools:context=".LecturerData">
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_LecturerData"
+        app:srcCompat="@drawable/gradient" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_LecturerData"
         android:layout_width="0dp"
@@ -29,4 +39,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_LecturerData" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

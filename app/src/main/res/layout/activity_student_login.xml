@@ -7,6 +7,16 @@
     android:background="@color/color1"
     tools:context=".StudentLogin">
 
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_StudentLogin"
+        app:srcCompat="@drawable/gradient" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_StudentLogin"
         android:layout_width="match_parent"
@@ -68,10 +78,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/color4"
+        android:background="@drawable/my_button_bg"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Login"
-        android:textColor="@color/design_default_color_background"
+        android:textColor="@color/color5"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
