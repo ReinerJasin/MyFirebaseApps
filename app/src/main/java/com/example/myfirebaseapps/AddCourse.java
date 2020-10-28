@@ -83,48 +83,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 adapterend = null;
-                if (position == 0) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0730, android.R.layout.simple_spinner_item);
-                } else if (position == 1) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0800, android.R.layout.simple_spinner_item);
-                } else if (position == 2) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0830, android.R.layout.simple_spinner_item);
-                } else if (position == 3) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0900, android.R.layout.simple_spinner_item);
-                } else if (position == 4) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0930, android.R.layout.simple_spinner_item);
-                } else if (position == 5) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1000, android.R.layout.simple_spinner_item);
-                } else if (position == 6) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1030, android.R.layout.simple_spinner_item);
-                } else if (position == 7) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1100, android.R.layout.simple_spinner_item);
-                } else if (position == 8) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1130, android.R.layout.simple_spinner_item);
-                } else if (position == 9) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1200, android.R.layout.simple_spinner_item);
-                } else if (position == 10) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1230, android.R.layout.simple_spinner_item);
-                } else if (position == 11) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1300, android.R.layout.simple_spinner_item);
-                } else if (position == 12) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1330, android.R.layout.simple_spinner_item);
-                } else if (position == 13) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1400, android.R.layout.simple_spinner_item);
-                } else if (position == 14) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1430, android.R.layout.simple_spinner_item);
-                } else if (position == 15) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1500, android.R.layout.simple_spinner_item);
-                } else if (position == 16) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1530, android.R.layout.simple_spinner_item);
-                } else if (position == 17) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1600, android.R.layout.simple_spinner_item);
-                } else if (position == 18) {
-                    adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1630, android.R.layout.simple_spinner_item);
-                }
-
-                adapterend.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner_time_end.setAdapter(adapterend);
+                set_spinner_time_end(position);
             }
 
             @Override
@@ -165,6 +124,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
             int startIndex = adapter_time.getPosition(course_object.getStart());
             spinner_time.setSelection(startIndex);
 
+            set_spinner_time_end(startIndex);
             final int endIndex = adapterend.getPosition(course_object.getEnd());
             spinner_time_end.setSelection(endIndex);
 
@@ -216,7 +176,6 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
     }
 
     @Override
@@ -325,5 +284,50 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(AddCourse.this);
         startActivity(intent, options.toBundle());
         finish();
+    }
+
+    public void set_spinner_time_end(int position){
+        if (position == 0) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0730, android.R.layout.simple_spinner_item);
+        } else if (position == 1) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0800, android.R.layout.simple_spinner_item);
+        } else if (position == 2) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0830, android.R.layout.simple_spinner_item);
+        } else if (position == 3) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0900, android.R.layout.simple_spinner_item);
+        } else if (position == 4) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0930, android.R.layout.simple_spinner_item);
+        } else if (position == 5) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1000, android.R.layout.simple_spinner_item);
+        } else if (position == 6) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1030, android.R.layout.simple_spinner_item);
+        } else if (position == 7) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1100, android.R.layout.simple_spinner_item);
+        } else if (position == 8) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1130, android.R.layout.simple_spinner_item);
+        } else if (position == 9) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1200, android.R.layout.simple_spinner_item);
+        } else if (position == 10) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1230, android.R.layout.simple_spinner_item);
+        } else if (position == 11) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1300, android.R.layout.simple_spinner_item);
+        } else if (position == 12) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1330, android.R.layout.simple_spinner_item);
+        } else if (position == 13) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1400, android.R.layout.simple_spinner_item);
+        } else if (position == 14) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1430, android.R.layout.simple_spinner_item);
+        } else if (position == 15) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1500, android.R.layout.simple_spinner_item);
+        } else if (position == 16) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1530, android.R.layout.simple_spinner_item);
+        } else if (position == 17) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1600, android.R.layout.simple_spinner_item);
+        } else if (position == 18) {
+            adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end1630, android.R.layout.simple_spinner_item);
+        }
+
+        adapterend.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_time_end.setAdapter(adapterend);
     }
 }
