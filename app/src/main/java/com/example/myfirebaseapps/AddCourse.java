@@ -99,6 +99,10 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
         action = getIntent().getStringExtra("action");
         if(action.equalsIgnoreCase("add")){
             getSupportActionBar().setTitle("Add Course");
+
+            submit_button.setEnabled(false);
+            course_subject.getEditText().addTextChangedListener(this);
+
             submit_button.setText("Add Course");
             submit_button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -160,9 +164,6 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
         adapter_lecturer.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_lecturer.setAdapter(adapter_lecturer);
 
-        submit_button.setEnabled(false);
-        course_subject.getEditText().addTextChangedListener(this);
-
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -202,7 +203,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
 
     public void addCourse(String course, String lecturer, String day, String time, String time_end) {//add course
         String mid = mDatabase.child("course").push().getKey();
-        Course course_temp = new Course(mid,course, lecturer, day, time, time_end);
+        Course course_temp = new Course(mid,course, day, time, time_end, lecturer);
         mDatabase.child("course").child(mid).setValue(course_temp).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
