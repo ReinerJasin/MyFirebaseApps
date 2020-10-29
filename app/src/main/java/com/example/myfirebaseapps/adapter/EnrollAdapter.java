@@ -121,7 +121,7 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
 
                     if(course_day.equalsIgnoreCase(course_temp_day)) { //ngecek kalau jadwal berada di hari yang sama
                         if (course_temp_time >= course_time && course_temp_time <= course_time_end) { //ngecek kalau jam mulai berada dalam range waktu yang sudah diambil
-                            if (course_temp_time >= course_time && course_temp_time <= course_time_end) { //ngecek kalau jam selesai berada dalam range waktu yang sudah diambil
+                            if (course_temp_time_end >= course_time && course_temp_time_end <= course_time_end) { //ngecek kalau jam selesai berada dalam range waktu yang sudah diambil
                                 timeConflict = true;
                             }
                         }
