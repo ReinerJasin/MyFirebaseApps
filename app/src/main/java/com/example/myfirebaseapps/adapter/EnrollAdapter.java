@@ -31,7 +31,6 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
 
     private ArrayList<Course> listCourse;
 
-    MutableLiveData<Course> addCourse = new MutableLiveData<>();
     boolean timeConflict = false;
 
     public ArrayList<Course> getListCourse() {
@@ -68,6 +67,7 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
             @Override
             public void onClick(View v) {
                 ConflictCheck(course);
+                Toast.makeText(context, "Masuk", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -94,6 +94,8 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
 
         }
     }
+
+    MutableLiveData<Course> addCourse = new MutableLiveData<>();
 
     public MutableLiveData<Course> getAddCourse() {
         return addCourse;
@@ -128,7 +130,7 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
                     if(timeConflict == true){
                         Toast.makeText(context, "Time conflict detected!", Toast.LENGTH_SHORT).show();
                     } else {
-                        getAddCourse().setValue(course_temp);
+                        addCourse.setValue(course_temp);
                     }
                 }
             }
