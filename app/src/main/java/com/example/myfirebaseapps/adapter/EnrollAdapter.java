@@ -1,6 +1,8 @@
 package com.example.myfirebaseapps.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +43,7 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
         this.listCourse = listCourse;
     }
 
-    public EnrollAdapter(Context context) {
+    public EnrollAdapter(final Context context) {
         this.context = context;
     }
 
@@ -52,6 +54,7 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
         return new EnrollAdapter.CardViewViewHolder(view);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull EnrollAdapter.CardViewViewHolder holder, int position) {
 
@@ -82,7 +85,7 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
         TextView enroll_course, enroll_lecturer, enroll_day, enroll_time, enroll_time_end;
         ImageButton enroll_button;
 
-        public CardViewViewHolder(@NonNull View itemView) {
+        public CardViewViewHolder(View itemView) {
             super(itemView);
 
             enroll_course = itemView.findViewById(R.id.enroll_course);
@@ -112,26 +115,34 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 timeConflict = false;
 
-                for (DataSnapshot childSnapshot : snapshot.getChildren()){
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                     Course course = childSnapshot.getValue(Course.class);
 
                     String course_day = course.getDay();
                     int course_time = Integer.parseInt(course.getStart().replace(":", ""));
                     int course_time_end = Integer.parseInt(course.getEnd().replace(":", ""));
 
-                    if(course_day.equalsIgnoreCase(course_temp_day)) { //ngecek kalau jadwal berada di hari yang sama
-                        if (course_temp_time >= course_time && course_temp_time <= course_time_end) { //ngecek kalau jam mulai berada dalam range waktu yang sudah diambil
-                            if (course_temp_time_end >= course_time && course_temp_time_end <= course_time_end) { //ngecek kalau jam selesai berada dalam range waktu yang sudah diambil
+                    //ngecek kalau jadwal berada di hari yang sama
+                    if (course_day.equalsIgnoreCase(course_temp_day)) {
+
+                        //ngecek kalau jam mulai berada dalam range waktu yang sudah diambil
+                        if (course_temp_time >= course_time && course_temp_time <= course_time_end) {
+
+                            //ngecek kalau jam selesai berada dalam range waktu yang sudah diambil
+                            if (course_temp_time_end >= course_time && course_temp_time_end <= course_time_end) {
                                 timeConflict = true;
                             }
+
                         }
+
                     }
 
-                    if(timeConflict == true){
-                        Toast.makeText(context, "Time conflict detected!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        addCourse.setValue(course_temp);
-                    }
+                }
+
+                if (timeConflict == true) {
+                    Toast.makeText(context, "Time conflict detected!", Toast.LENGTH_SHORT).show();
+                } else {
+                    addCourse.setValue(course_temp);
                 }
             }
 
