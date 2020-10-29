@@ -75,9 +75,9 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.CardVi
             @Override
             public void onClick(View v) {
 
-                dialog = Glovar.loadingDialog(v.getContext());
+                dialog = Glovar.loadingDialog(context);
 
-                new AlertDialog.Builder(v.getContext())
+                new AlertDialog.Builder(context)
                         .setTitle("Konfirmasi")
                         .setIcon(R.drawable.ic_baseline_android_24)
                         .setMessage("Are you sure to delete " + course.getSubject() + " data?")

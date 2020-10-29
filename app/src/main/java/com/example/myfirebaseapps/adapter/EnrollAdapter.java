@@ -1,7 +1,10 @@
 package com.example.myfirebaseapps.adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myfirebaseapps.Glovar;
 import com.example.myfirebaseapps.Model.Course;
 import com.example.myfirebaseapps.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,6 +40,8 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
     private ArrayList<Course> listCourse;
 
     boolean timeConflict = false;
+
+    Dialog dialog;
 
     public ArrayList<Course> getListCourse() {
         return listCourse;
@@ -69,7 +77,39 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
         holder.enroll_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConflictCheck(course);
+
+                dialog = Glovar.loadingDialog(context);
+
+                new AlertDialog.Builder(context)
+                        .setTitle("Konfirmasi")
+                        .setIcon(R.drawable.ic_baseline_android_24)
+                        .setMessage("Are you sure to delete " + course.getSubject() + " data?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(final DialogInterface dialogInterface, int i) {
+
+                                dialog.show();
+
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        dialog.cancel();
+                                        ConflictCheck(course);
+                                    }
+                                }, 1000);
+                            }
+                        })
+
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .create()
+                        .show();
             }
         });
     }
@@ -126,12 +166,14 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
 
                         //ngecek kalau jam mulai berada dalam range waktu yang sudah diambil
                         if (course_temp_time >= course_time && course_temp_time <= course_time_end) {
+                            timeConflict = true;
+                            break;
+                        }
 
-                            //ngecek kalau jam selesai berada dalam range waktu yang sudah diambil
-                            if (course_temp_time_end >= course_time && course_temp_time_end <= course_time_end) {
-                                timeConflict = true;
-                            }
-
+                        //ngecek kalau jam selesai berada dalam range waktu yang sudah diambil
+                        if (course_temp_time_end >= course_time && course_temp_time_end <= course_time_end) {
+                            timeConflict = true;
+                            break;
                         }
 
                     }
