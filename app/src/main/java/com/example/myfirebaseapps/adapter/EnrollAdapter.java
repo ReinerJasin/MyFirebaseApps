@@ -70,7 +70,6 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
             @Override
             public void onClick(View v) {
                 ConflictCheck(course);
-                Toast.makeText(context, "Masuk", Toast.LENGTH_SHORT).show();
             }
         });
     }
