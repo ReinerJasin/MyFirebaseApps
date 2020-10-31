@@ -16,6 +16,7 @@ public class SplashScreen extends AppCompatActivity {
     private int loading_time = 1500;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +30,16 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 if (mUser != null) {
-                    startActivity(new Intent(SplashScreen.this, StudentMainActivity.class));
+
+                    intent = new Intent(SplashScreen.this, StudentMainActivity.class);
+                    intent.putExtra("action", "reicakep");
+                    startActivity(intent);
+
                 } else {
-                    startActivity(new Intent(SplashScreen.this, Starter.class));
+
+                    intent = new Intent(SplashScreen.this, Starter.class);
+                    startActivity(intent);
+
                 }
                 finish();
             }

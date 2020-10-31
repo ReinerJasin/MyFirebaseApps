@@ -71,6 +71,7 @@ public class StudentLogin extends AppCompatActivity implements TextWatcher {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Intent intent = new Intent(StudentLogin.this, StudentMainActivity.class);
+                                intent.putExtra("action", "umm nothing..");
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();

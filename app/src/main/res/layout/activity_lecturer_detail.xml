@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
         app:title="Lecturer Detail"
-        app:titleTextColor="@color/design_default_color_on_primary" />
+        app:titleTextColor="@color/color5" />
 
     <ImageView
         android:id="@+id/imageView8"

@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Schedule"
-        app:titleTextColor="@android:color/background_light" />
+        app:titleTextColor="@color/color5" />
 
     <FrameLayout
         android:id="@+id/fragment_container"

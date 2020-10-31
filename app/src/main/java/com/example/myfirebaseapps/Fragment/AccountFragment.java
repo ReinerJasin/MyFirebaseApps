@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.example.myfirebaseapps.Model.Student;
 import com.example.myfirebaseapps.R;
 import com.example.myfirebaseapps.Starter;
+import com.example.myfirebaseapps.StudentRegister;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,9 +27,10 @@ import com.google.firebase.database.ValueEventListener;
 public class AccountFragment extends Fragment {
 
     TextView frag_nama, frag_nim, frag_email, frag_gender, frag_age, frag_address;
-    Button button_logout;
+    Button button_logout, button_edit;
     FirebaseUser fUser;
     DatabaseReference reference;
+    Student student;
 
     @Nullable
     @Override
@@ -43,6 +45,7 @@ public class AccountFragment extends Fragment {
         frag_address = view.findViewById(R.id.frag_address);
 
         button_logout = view.findViewById(R.id.button_logout);
+        button_edit = view.findViewById(R.id.button_edit_logged_in);
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("student").child(fUser.getUid());
@@ -59,10 +62,21 @@ public class AccountFragment extends Fragment {
             }
         });
 
+        button_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), StudentRegister.class);
+                intent.putExtra("action", "login");
+                intent.putExtra("data_student", student);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Student student = snapshot.getValue(Student.class);
+                student = snapshot.getValue(Student.class);
                 frag_nama.setText(student.getName());
                 frag_nim.setText("NIM : " + student.getNim());
                 frag_email.setText("Email : " + student.getEmail());

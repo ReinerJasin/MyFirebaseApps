@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class StudentMainActivity extends AppCompatActivity {
 
+    String action;
     Toolbar toolbar;
     Button button_logout;
     FirebaseUser mUser;
@@ -37,7 +39,15 @@ public class StudentMainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ScheduleFragment()).commit();
+        Intent intent = getIntent();
+        action = intent.getStringExtra("action");
+
+        if(action.equalsIgnoreCase("login")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AccountFragment()).commit();
+            toolbar.setTitle("Account");
+        }else{
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ScheduleFragment()).commit();
+        }
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {

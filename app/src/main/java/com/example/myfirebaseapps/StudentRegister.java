@@ -19,6 +19,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.myfirebaseapps.Fragment.AccountFragment;
 import com.example.myfirebaseapps.Model.Student;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -102,7 +103,7 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
         if (action.equalsIgnoreCase("add")) {
             toolbar.setTitle("Register Student");
             btn_register.setText("Register Student");
-        } else if (action.equalsIgnoreCase("edit")) {
+        } else if (action.equalsIgnoreCase("edit") || action.equalsIgnoreCase("login")) {
             toolbar.setTitle("Edit Student");
             btn_register.setText("Edit Student");
 
@@ -119,7 +120,7 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
             public void onClick(View v) {
                 if (action.equalsIgnoreCase("add")) {
                     addStudent();
-                } else if (action.equalsIgnoreCase("edit")) {
+                } else if (action.equalsIgnoreCase("edit") || action.equalsIgnoreCase("login")) {
                     editStudent();
                 }
             }
@@ -158,8 +159,13 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
             public void onSuccess(Void aVoid) {
                 dialog.cancel();
                 Intent intent;
-                intent = new Intent(StudentRegister.this, StudentData.class);
-                intent.putExtra("action", "edit");
+                if(action.equalsIgnoreCase("login")){
+                    intent = new Intent(StudentRegister.this, StudentMainActivity.class);
+                    intent.putExtra("action", "login");
+                }else {
+                    intent = new Intent(StudentRegister.this, StudentData.class);
+                    intent.putExtra("action", "edit");
+                }
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StudentRegister.this);
                 startActivity(intent, options.toBundle());
