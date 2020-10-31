@@ -53,8 +53,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CardViewVi
     @NonNull
     @Override
     public CourseAdapter.CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R
-                .layout.course_adapter, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.course_adapter, parent, false);
         return new CourseAdapter.CardViewViewHolder(view);
     }
 
