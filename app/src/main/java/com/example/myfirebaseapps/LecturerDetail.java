@@ -39,7 +39,6 @@ public class LecturerDetail extends AppCompatActivity {
     ImageView btn_edit, btn_del;
     Dialog dialog;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

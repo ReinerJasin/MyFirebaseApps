@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
             android:hint="Course Subject" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner

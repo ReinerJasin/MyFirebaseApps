@@ -28,7 +28,6 @@ import java.util.ArrayList;
 public class CourseData extends AppCompatActivity {
 
     Toolbar toolbar;
-
     DatabaseReference dbCourse;
     ArrayList<Course> listCourse = new ArrayList<>();
     RecyclerView rv;
@@ -62,7 +61,7 @@ public class CourseData extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listCourse.clear();
                 rv.setAdapter(null);
-                for(DataSnapshot childSnapshot : snapshot.getChildren()){
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                     Course course = childSnapshot.getValue(Course.class);
                     listCourse.add(course);
                 }
@@ -85,7 +84,7 @@ public class CourseData extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             Intent intent;
             intent = new Intent(CourseData.this, AddCourse.class);
             intent.putExtra("action", "add");

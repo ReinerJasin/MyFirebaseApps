@@ -12,7 +12,8 @@ public class Course implements Parcelable {
     private String end;
     private String lecturer;
 
-    public Course(){}
+    public Course() {
+    }
 
     public Course(String id, String subject, String day, String start, String end, String lecturer) {
         this.id = id;

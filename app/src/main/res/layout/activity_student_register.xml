@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
             android:hint="Email" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -68,6 +69,7 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:hint="Password"
             android:inputType="textPassword" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -87,6 +89,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
             android:hint="Full Name" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -107,6 +110,7 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:hint="NIM"
             android:inputType="number" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -189,6 +193,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
             android:hint="Address" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

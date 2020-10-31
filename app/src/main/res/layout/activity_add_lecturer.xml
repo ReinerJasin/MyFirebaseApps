@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
             android:hint="Name" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -110,6 +111,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
             android:hint="Expertise" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

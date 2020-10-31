@@ -14,7 +14,7 @@ public class Student implements Parcelable {
     private String age;
     private String address;
 
-    public Student(){
+    public Student() {
 
     }
 

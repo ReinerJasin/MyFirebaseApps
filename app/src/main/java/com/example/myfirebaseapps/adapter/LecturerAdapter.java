@@ -45,6 +45,7 @@ public class LecturerAdapter extends RecyclerView.Adapter<LecturerAdapter.CardVi
     @Override
     public void onBindViewHolder(@NonNull final LecturerAdapter.CardViewViewHolder holder, int position) {
         final Lecturer lecturer = getListLecturer().get(position);
+
         holder.lbl_name.setText(lecturer.getName());
         holder.lbl_gender.setText(lecturer.getGender());
         holder.lbl_expertise.setText(lecturer.getExpertise());
@@ -60,6 +61,7 @@ public class LecturerAdapter extends RecyclerView.Adapter<LecturerAdapter.CardVi
 
         CardViewViewHolder(View itemView) {
             super(itemView);
+
             lbl_name = itemView.findViewById(R.id.cv_name);
             lbl_gender = itemView.findViewById(R.id.cv_gender);
             lbl_expertise = itemView.findViewById(R.id.cv_expertise);

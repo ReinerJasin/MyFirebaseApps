@@ -50,7 +50,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.CardView
 
     @SuppressLint("ResourceAsColor")
     @Override
-    public void onBindViewHolder (@NonNull final StudentAdapter.CardViewViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final StudentAdapter.CardViewViewHolder holder, int position) {
         final Student student = getListStudent().get(position);
         holder.cv_name_student.setText(student.getName());
         holder.cv_nim_student.setText("NIM : " + student.getNim());
@@ -66,14 +66,15 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.CardView
         return getListStudent().size();
     }
 
-    class CardViewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class CardViewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView cv_name_student, cv_nim_student, cv_email_student, cv_gender_student,cv_age_student, cv_address_student;
+        TextView cv_name_student, cv_nim_student, cv_email_student, cv_gender_student, cv_age_student, cv_address_student;
         OnCardListener onCardListener;
         ImageButton imageButton_edit, imageButton_delete;
 
         CardViewViewHolder(View itemView) {
             super(itemView);
+
             cv_name_student = itemView.findViewById(R.id.cv_name_student);
             cv_nim_student = itemView.findViewById(R.id.cv_nim_student);
             cv_email_student = itemView.findViewById(R.id.cv_email_student);
@@ -119,7 +120,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.CardView
     }
 
     public interface OnCardListener {
-        void onCardClick (int position);
+        void onCardClick(int position);
     }
 
 }

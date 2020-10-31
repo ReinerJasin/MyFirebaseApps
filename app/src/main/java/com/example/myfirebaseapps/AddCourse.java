@@ -42,10 +42,10 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
     String course, day, time, time_end, lecturer, action = "";
     Button submit_button;
     Toolbar toolbar;
-
     Course course_object;
 
     private DatabaseReference mDatabase;
+
     List<String> lecturer_list;
     ArrayAdapter<CharSequence> adapterend;
 
@@ -98,7 +98,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
         showSpinnerLecturer();
 
         action = getIntent().getStringExtra("action");
-        if(action.equalsIgnoreCase("add")){
+        if (action.equalsIgnoreCase("add")) {
             getSupportActionBar().setTitle("Add Course");
 
             submit_button.setEnabled(false);
@@ -116,7 +116,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
                     addCourse(course, lecturer, day, time, time_end);
                 }
             });
-        }else if(action.equalsIgnoreCase("edit")){
+        } else if (action.equalsIgnoreCase("edit")) {
             getSupportActionBar().setTitle("Edit Course");
             submit_button.setText("Edit Course");
             course_object = getIntent().getParcelableExtra("edit_data_course");
@@ -204,7 +204,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
 
     public void addCourse(String course, String lecturer, String day, String time, String time_end) {//add course
         String mid = mDatabase.child("course").push().getKey();
-        Course course_temp = new Course(mid,course, day, time, time_end, lecturer);
+        Course course_temp = new Course(mid, course, day, time, time_end, lecturer);
         mDatabase.child("course").child(mid).setValue(course_temp).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
@@ -224,18 +224,18 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
         });
     }
 
-    public void showSpinnerLecturer(){
+    public void showSpinnerLecturer() {
         mDatabase.child("lecturer").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot childSnapshot:snapshot.getChildren()) {
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                     String spinner_lecturer = childSnapshot.child("name").getValue(String.class);
                     lecturer_list.add(spinner_lecturer);
                 }
-                ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(AddCourse.this, android.R.layout.simple_spinner_item,lecturer_list);
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(AddCourse.this, android.R.layout.simple_spinner_item, lecturer_list);
                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner_lecturer.setAdapter(arrayAdapter);
-                if (action.equalsIgnoreCase("edit")){
+                if (action.equalsIgnoreCase("edit")) {
                     int index = arrayAdapter.getPosition(course_object.getLecturer());
                     spinner_lecturer.setSelection(index);
                 }
@@ -258,7 +258,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             Intent intent;
             intent = new Intent(AddCourse.this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -266,7 +266,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
             startActivity(intent, options.toBundle());
             finish();
             return true;
-        }else if(id == R.id.course_list){
+        } else if (id == R.id.course_list) {
             Intent intent;
             intent = new Intent(AddCourse.this, CourseData.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -288,7 +288,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
         finish();
     }
 
-    public void set_spinner_time_end(int position){
+    public void set_spinner_time_end(int position) {
         if (position == 0) {
             adapterend = ArrayAdapter.createFromResource(AddCourse.this, R.array.jam_end0730, android.R.layout.simple_spinner_item);
         } else if (position == 1) {

@@ -34,13 +34,9 @@ import java.util.ArrayList;
 public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewViewHolder> {
 
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-
     private Context context;
-
     private ArrayList<Course> listCourse;
-
     boolean timeConflict = false;
-
     Dialog dialog;
 
     public ArrayList<Course> getListCourse() {
@@ -158,6 +154,7 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
                     Course course = childSnapshot.getValue(Course.class);
 
                     String course_day = course.getDay();
+
                     int course_time = Integer.parseInt(course.getStart().replace(":", ""));
                     int course_time_end = Integer.parseInt(course.getEnd().replace(":", ""));
 

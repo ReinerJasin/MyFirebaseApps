@@ -88,7 +88,6 @@ public class AddLecturer extends AppCompatActivity implements TextWatcher {
             }
         });
 
-
         lecturer_name = lecturer_input_name.getEditText().getText().toString();
         lecturer_expertise = lecturer_input_expertise.getEditText().getText().toString();
 
@@ -101,7 +100,7 @@ public class AddLecturer extends AppCompatActivity implements TextWatcher {
         Intent intent = getIntent();
         action = intent.getStringExtra("action");
 
-        if(action.equalsIgnoreCase("edit")){
+        if (action.equalsIgnoreCase("edit")) {
 
             toolbar.setTitle("Edit Lecturer");
             submit_button.setText("Save Changes");
@@ -111,9 +110,9 @@ public class AddLecturer extends AppCompatActivity implements TextWatcher {
             lecturer_input_name.getEditText().setText(lecturer.getName());
             lecturer_input_expertise.getEditText().setText(lecturer.getExpertise());
 
-            if(lecturer.getGender().equalsIgnoreCase("male")){
+            if (lecturer.getGender().equalsIgnoreCase("male")) {
                 rg.check(R.id.radioButton);
-            }else{
+            } else {
                 rg.check(R.id.radioButton2);
             }
 
@@ -123,7 +122,7 @@ public class AddLecturer extends AppCompatActivity implements TextWatcher {
                     dialog.show();
                     lecturer_name = lecturer_input_name.getEditText().getText().toString().trim();
                     lecturer_expertise = lecturer_input_expertise.getEditText().getText().toString().trim();
-                    Map<String,Object> params = new HashMap<>();
+                    Map<String, Object> params = new HashMap<>();
                     params.put("name", lecturer_name);
                     params.put("expertise", lecturer_expertise);
                     params.put("gender", lecturer_gender);
@@ -142,7 +141,7 @@ public class AddLecturer extends AppCompatActivity implements TextWatcher {
                 }
             });
 
-        }else{
+        } else {
             toolbar.setTitle("Add Lecturer");
             submit_button.setText("Add Lecturer");
 
@@ -154,9 +153,6 @@ public class AddLecturer extends AppCompatActivity implements TextWatcher {
             });
 
         }
-
-
-
 
     }
 
@@ -193,11 +189,10 @@ public class AddLecturer extends AppCompatActivity implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
+
         lecturer_name = lecturer_input_name.getEditText().getText().toString();
         lecturer_expertise = lecturer_input_expertise.getEditText().getText().toString();
-
         lecturer_gender = rb.getText().toString();
-
 
         if (!lecturer_name.isEmpty() && !lecturer_gender.isEmpty() && !lecturer_expertise.isEmpty()) {
             Log.d("button condition", "button enabled");
@@ -238,10 +233,11 @@ public class AddLecturer extends AppCompatActivity implements TextWatcher {
         return super.onOptionsItemSelected(item);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.lecturer_menu, menu);
+
         return true;
     }
+
 }

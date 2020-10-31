@@ -55,7 +55,6 @@ public class StudentData extends AppCompatActivity {
     Dialog dialog;
     int position = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,8 +130,8 @@ public class StudentData extends AppCompatActivity {
 
 //        layoutManager = new LinearLayoutManager(this);
 //        rv.setLayoutManager(layoutManager);
-        }
 
+        }
 
         //findViewById
         toolbar = findViewById(R.id.toolbar_studentData);

@@ -33,7 +33,7 @@ public class AccountFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_account, container, false);
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
 
         frag_nama = view.findViewById(R.id.frag_nama);
         frag_nim = view.findViewById(R.id.frag_nim);

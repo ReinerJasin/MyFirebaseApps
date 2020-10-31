@@ -48,8 +48,8 @@ public class LecturerData extends AppCompatActivity {
 
 //        layoutManager = new LinearLayoutManager(this);
 //        rv.setLayoutManager(layoutManager);
-        fetchLecturerData();
 
+        fetchLecturerData();
 
         //findViewById
         toolbar = findViewById(R.id.toolbar_LecturerData);

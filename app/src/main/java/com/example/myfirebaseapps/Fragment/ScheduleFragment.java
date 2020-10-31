@@ -32,19 +32,22 @@ public class ScheduleFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_schedule, container, false);
+        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
         dbSchedule = FirebaseDatabase.getInstance().getReference("student").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("course");
 
         dbSchedule.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 listCourse.clear();
                 rv.setAdapter(null);
-                for(DataSnapshot childSnapshot : snapshot.getChildren()){
+
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                     Course course = childSnapshot.getValue(Course.class);
                     listCourse.add(course);
                 }
+
                 showData(listCourse);
             }
 
@@ -59,7 +62,8 @@ public class ScheduleFragment extends Fragment {
         return view;
     }
 
-    private void showData(ArrayList<Course> listCourse){
+    private void showData(ArrayList<Course> listCourse) {
+
         rv.setLayoutManager(new LinearLayoutManager(ScheduleFragment.this.getActivity()));
         ScheduleAdapter scheduleAdapter = new ScheduleAdapter(ScheduleFragment.this.getActivity());
         scheduleAdapter.setListCourse(listCourse);

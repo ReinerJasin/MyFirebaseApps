@@ -63,18 +63,18 @@ public class StudentLogin extends AppCompatActivity implements TextWatcher {
             @Override
             public void onClick(View v) {
 
-                if(TextUtils.isEmpty(email) || TextUtils.isEmpty(pass)){
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(pass)) {
                     Toast.makeText(StudentLogin.this, "All field are required!", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 Intent intent = new Intent(StudentLogin.this, StudentMainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();
-                            }else{
+                            } else {
                                 Toast.makeText(StudentLogin.this, "Authentication Failed!", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -95,9 +95,9 @@ public class StudentLogin extends AppCompatActivity implements TextWatcher {
         email = login_email.getEditText().getText().toString().trim();
         pass = login_pass.getEditText().getText().toString().trim();
 
-        if(email.isEmpty() || pass.isEmpty()){
+        if (email.isEmpty() || pass.isEmpty()) {
             btn_login.setEnabled(false);
-        }else{
+        } else {
             btn_login.setEnabled(true);
         }
     }

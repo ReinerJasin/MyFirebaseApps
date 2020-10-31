@@ -35,11 +35,8 @@ import java.util.ArrayList;
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.CardViewViewHolder> {
 
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-
     private Context context;
-
     Dialog dialog;
-
     private ArrayList<Course> listCourse;
 
     public ArrayList<Course> getListCourse() {

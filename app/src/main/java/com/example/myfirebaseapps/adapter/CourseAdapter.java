@@ -41,6 +41,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CardViewVi
     private ArrayList<Course> getListCourse() {
         return listCourse;
     }
+
     public void setListCourse(ArrayList<Course> listCourse) {
         this.listCourse = listCourse;
     }
@@ -76,7 +77,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CardViewVi
                 new AlertDialog.Builder(context)
                         .setTitle("Konfirmasi")
                         .setIcon(R.drawable.ic_baseline_android_24)
-                        .setMessage("Are you sure to delete "+ course.getSubject()+" data?")
+                        .setMessage("Are you sure to delete " + course.getSubject() + " data?")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
@@ -114,7 +115,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CardViewVi
         return getListCourse().size();
     }
 
-    class CardViewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class CardViewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView lbl_course, lbl_lecturer, lbl_day, lbl_time, lbl_time_end;
         CourseAdapter.OnCardListener onCardListener;
         ImageButton btn_edit, btn_delete;
@@ -148,7 +149,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CardViewVi
         }
     }
 
-    public interface OnCardListener{
-        void OnCardClick (int position);
+    public interface OnCardListener {
+        void OnCardClick(int position);
     }
 }
