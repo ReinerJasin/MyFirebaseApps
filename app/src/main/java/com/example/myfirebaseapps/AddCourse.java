@@ -281,7 +281,7 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
     @Override
     public void onBackPressed() {
         Intent intent;
-        intent = new Intent(AddCourse.this, MainActivity.class);
+        intent = new Intent(AddCourse.this, Starter.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(AddCourse.this);
         startActivity(intent, options.toBundle());

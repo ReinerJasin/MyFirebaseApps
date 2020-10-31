@@ -172,22 +172,18 @@ public class StudentData extends AppCompatActivity {
         StudentAdapter studentAdapter = new StudentAdapter(StudentData.this);
         studentAdapter.setListStudent(list);
         rv.setAdapter(studentAdapter);
-
-//        ItemClickSupport.addTo(rv).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-//            @Override
-//            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-//                v.startAnimation(klik);
-//                Intent intent = new Intent(StudentData.this, LecturerDetail.class);
-//                Student student = new Student(list.get(position).getUid(), list.get(position).getEmail(), list.get(position).getPassword(), list.get(position).getName(), list.get(position).getNim(), list.get(position).getGender(), list.get(position).getAge(), list.get(position).getAddress());
-//                intent.putExtra("data_student", student);
-//                intent.putExtra("position", position);
-//                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StudentData.this);
-//                startActivity(intent, options.toBundle());
-//                finish();
-//            }
-//        });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent;
+        intent = new Intent(StudentData.this, StudentRegister.class);
+        intent.putExtra("action", "add");
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StudentData.this);
+        startActivity(intent, options.toBundle());
+        finish();
+    }
 
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {

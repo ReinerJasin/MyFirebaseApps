@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -105,4 +106,15 @@ public class StudentLogin extends AppCompatActivity implements TextWatcher {
     public void afterTextChanged(Editable s) {
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent;
+        intent = new Intent(StudentLogin.this, Starter.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StudentLogin.this);
+        startActivity(intent, options.toBundle());
+        finish();
+    }
+
 }

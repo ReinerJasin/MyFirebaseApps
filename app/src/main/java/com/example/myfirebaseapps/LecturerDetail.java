@@ -44,17 +44,21 @@ public class LecturerDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecturer_detail);
+
         bar = findViewById(R.id.toolbar_lecturer_detail);
-        setSupportActionBar(bar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        dbLecturer = FirebaseDatabase.getInstance().getReference("lecturer");
         lbl_name = findViewById(R.id.lbl_nama);
         lbl_gender = findViewById(R.id.lbl_gender);
         lbl_expertise = findViewById(R.id.lbl_expertise);
         btn_edit = findViewById(R.id.btn_edit);
         btn_del = findViewById(R.id.btn_delete);
+
+        dbLecturer = FirebaseDatabase.getInstance().getReference("lecturer");
+
         dialog = Glovar.loadingDialog(LecturerDetail.this);
+
+        setSupportActionBar(bar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Intent intent = getIntent();
         pos = intent.getIntExtra("position", 0);
@@ -108,7 +112,6 @@ public class LecturerDetail extends AppCompatActivity {
                         .show();
             }
         });
-
 
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override

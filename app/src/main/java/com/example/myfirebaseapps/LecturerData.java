@@ -106,6 +106,17 @@ public class LecturerData extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        Intent intent;
+        intent = new Intent(LecturerData.this, AddLecturer.class);
+        intent.putExtra("action", "add");
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LecturerData.this);
+        startActivity(intent, options.toBundle());
+        finish();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.lecturer_list) {

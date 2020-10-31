@@ -83,7 +83,7 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
                 new AlertDialog.Builder(context)
                         .setTitle("Konfirmasi")
                         .setIcon(R.drawable.ic_baseline_android_24)
-                        .setMessage("Are you sure to delete " + course.getSubject() + " data?")
+                        .setMessage("Enroll for " + course.getSubject() + " class?")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override

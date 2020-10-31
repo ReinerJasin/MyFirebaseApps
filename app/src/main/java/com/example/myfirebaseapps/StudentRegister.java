@@ -242,6 +242,16 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
     }
 
     @Override
+    public void onBackPressed() {
+        Intent intent;
+        intent = new Intent(StudentRegister.this, Starter.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StudentRegister.this);
+        startActivity(intent, options.toBundle());
+        finish();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.student_list) {
