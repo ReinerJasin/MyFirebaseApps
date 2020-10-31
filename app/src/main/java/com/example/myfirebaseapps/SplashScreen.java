@@ -32,7 +32,7 @@ public class SplashScreen extends AppCompatActivity {
                 if (mUser != null) {
 
                     intent = new Intent(SplashScreen.this, StudentMainActivity.class);
-                    intent.putExtra("action", "reicakep");
+                    intent.putExtra("action", " ");
                     startActivity(intent);
 
                 } else {

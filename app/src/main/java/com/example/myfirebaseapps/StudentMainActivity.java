@@ -24,6 +24,7 @@ public class StudentMainActivity extends AppCompatActivity {
     Button button_logout;
     FirebaseUser mUser;
     FirebaseAuth mAuth;
+    Fragment selectedFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +44,22 @@ public class StudentMainActivity extends AppCompatActivity {
         action = intent.getStringExtra("action");
 
         if(action.equalsIgnoreCase("login")){
+
+            bottomNav.setSelectedItemId(R.id.nav_account);
+
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AccountFragment()).commit();
-            toolbar.setTitle("Account");
+
         }else{
+
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ScheduleFragment()).commit();
+
         }
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment selectedFragment = null;
+            selectedFragment = null;
 
             switch (item.getItemId()) {
                 case R.id.nav_schedule:
