@@ -118,4 +118,15 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:srcCompat="@drawable/gradient" />
 
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_login"
+        app:srcCompat="@drawable/reiner_outline" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

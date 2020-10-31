@@ -19,14 +19,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_contacts_24"
-        tools:srcCompat="@drawable/ic_baseline_contacts_24" />
+        app:srcCompat="@drawable/reiner_no_outline" />
 
     <TextView
         android:id="@+id/textView2"
@@ -34,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="d'Student"
+        android:text="STUDENTOLOGY"
         android:textColor="@color/color5"
         android:textSize="36sp"
         android:textStyle="bold"

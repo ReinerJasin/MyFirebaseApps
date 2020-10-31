@@ -61,7 +61,8 @@
         android:textColorHint="@color/design_default_color_on_secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_email">
+        app:layout_constraintTop_toBottomOf="@+id/input_email"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

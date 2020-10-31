@@ -107,12 +107,16 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
             toolbar.setTitle("Edit Student");
             btn_register.setText("Edit Student");
 
+            input_email.getEditText().setEnabled(false);
+            input_password.getEditText().setEnabled(false);
+
             input_email.getEditText().setText(student.getEmail());
             input_password.getEditText().setText(student.getPassword());
             input_name.getEditText().setText(student.getName());
             input_nim.getEditText().setText(student.getNim());
             input_age.getEditText().setText(student.getAge());
             input_address.getEditText().setText(student.getAddress());
+
         }
 
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +133,15 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(StudentRegister.this, Starter.class);
+
+                Intent intent;
+
+                if(!action.equalsIgnoreCase("login")) {
+                    intent = new Intent(StudentRegister.this, Starter.class);
+                }else{
+                    intent = new Intent(StudentRegister.this, StudentMainActivity.class);
+                    intent.putExtra("action", "login");
+                }
                 startActivity(intent);
                 finish();
             }
@@ -250,7 +262,12 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
     @Override
     public void onBackPressed() {
         Intent intent;
-        intent = new Intent(StudentRegister.this, Starter.class);
+        if(!action.equalsIgnoreCase("login")) {
+            intent = new Intent(StudentRegister.this, Starter.class);
+        }else{
+            intent = new Intent(StudentRegister.this, StudentMainActivity.class);
+            intent.putExtra("action", "login");
+        }
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StudentRegister.this);
         startActivity(intent, options.toBundle());
@@ -275,7 +292,9 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.student_menu, menu);
+        if(!action.equalsIgnoreCase("login")) {
+            getMenuInflater().inflate(R.menu.student_menu, menu);
+        }
         return true;
     }
 }

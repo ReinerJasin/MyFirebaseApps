@@ -40,7 +40,7 @@
         android:contentDescription="profile picture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_lecturer_detail"
-        app:srcCompat="@drawable/ic_baseline_emoji_emotions_24" />
+        app:srcCompat="@drawable/reiner_no_outline" />
 
     <TextView
         android:id="@+id/lbl_nama"
