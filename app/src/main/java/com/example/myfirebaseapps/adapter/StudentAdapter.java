@@ -3,20 +3,15 @@ package com.example.myfirebaseapps.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myfirebaseapps.ItemClickSupport;
-import com.example.myfirebaseapps.Model.Lecturer;
 import com.example.myfirebaseapps.Model.Student;
 import com.example.myfirebaseapps.R;
 import com.example.myfirebaseapps.StudentData;
@@ -88,7 +83,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.CardView
             imageButton_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Log.d("tes", "masuk lagi di edit");
                     int position = getAdapterPosition();
                     Intent intent = new Intent(context, StudentRegister.class);
                     intent.putExtra("action", "edit");
@@ -101,7 +95,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.CardView
             imageButton_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Log.d("tes", "masuk lagi di delete");
                     int position = getAdapterPosition();
                     Intent intent = new Intent(context, StudentData.class);
                     intent.putExtra("action", "delete");
@@ -112,7 +105,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.CardView
             });
         }
 
-        //IF IT WORKS, IT WOKRS!!!!
         @Override
         public void onClick(View v) {
             onCardListener.onCardClick(getAdapterPosition());

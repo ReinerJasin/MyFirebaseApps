@@ -14,23 +14,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.myfirebaseapps.Model.Student;
-import com.example.myfirebaseapps.R;
-import com.example.myfirebaseapps.adapter.LecturerAdapter;
 import com.example.myfirebaseapps.adapter.StudentAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,12 +36,8 @@ public class StudentData extends AppCompatActivity {
     Toolbar toolbar;
     DatabaseReference databaseReference;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    FirebaseUser mUser = mAuth.getCurrentUser();
     ArrayList<Student> listStudent = new ArrayList<>();
     RecyclerView rv;
-    RecyclerView.LayoutManager layoutManager;
-    StudentAdapter adapter;
-    AlphaAnimation klik = new AlphaAnimation(1F, 0.6F);
     String action = "";
     Student student;
     Dialog dialog;
@@ -128,9 +116,6 @@ public class StudentData extends AppCompatActivity {
                     .create()
                     .show();
 
-//        layoutManager = new LinearLayoutManager(this);
-//        rv.setLayoutManager(layoutManager);
-
         }
 
         //findViewById
@@ -183,20 +168,5 @@ public class StudentData extends AppCompatActivity {
         startActivity(intent, options.toBundle());
         finish();
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.student_list) {
-//            Intent intent;
-//            intent = new Intent(StudentData.this, AddLecturer.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StudentData.this);
-//            startActivity(intent, options.toBundle());
-//            finish();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
 }

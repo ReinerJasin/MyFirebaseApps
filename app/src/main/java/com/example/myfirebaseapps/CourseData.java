@@ -7,16 +7,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActivityOptions;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.myfirebaseapps.Model.Course;
 import com.example.myfirebaseapps.adapter.CourseAdapter;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,12 +27,6 @@ public class CourseData extends AppCompatActivity {
     DatabaseReference dbCourse;
     ArrayList<Course> listCourse = new ArrayList<>();
     RecyclerView rv;
-    String action = "";
-    int position = 0;
-    Course course;
-    Dialog dialog;
-    FirebaseAuth fAuth;
-    FirebaseUser fUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,11 +97,5 @@ public class CourseData extends AppCompatActivity {
         startActivity(intent, options.toBundle());
         finish();
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.course_menu, menu);
-//        return true;
-//    }
 
 }

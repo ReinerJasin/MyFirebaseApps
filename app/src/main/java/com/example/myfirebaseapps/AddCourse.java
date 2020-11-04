@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.ActivityOptions;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -218,7 +217,6 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-//                dialog.cancel();
                 Toast.makeText(AddCourse.this, "Add Course Failed!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -240,7 +238,6 @@ public class AddCourse extends AppCompatActivity implements TextWatcher {
                     spinner_lecturer.setSelection(index);
                 }
             }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

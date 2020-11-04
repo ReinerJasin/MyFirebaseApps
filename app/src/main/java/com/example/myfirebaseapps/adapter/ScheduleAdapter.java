@@ -1,10 +1,8 @@
 package com.example.myfirebaseapps.adapter;
 
-import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myfirebaseapps.Glovar;
 import com.example.myfirebaseapps.Model.Course;
 import com.example.myfirebaseapps.R;
-import com.example.myfirebaseapps.StudentData;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -11,7 +11,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +30,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.zip.Inflater;
 
 public class AddLecturer extends AppCompatActivity implements TextWatcher {
 
@@ -90,12 +88,6 @@ public class AddLecturer extends AppCompatActivity implements TextWatcher {
 
         lecturer_name = lecturer_input_name.getEditText().getText().toString();
         lecturer_expertise = lecturer_input_expertise.getEditText().getText().toString();
-
-//        if (lecturer_gender.equalsIgnoreCase("Male")){
-//            lecturer_gender = "m";
-//        }else if(lecturer_gender.equalsIgnoreCase("Female")){
-//            lecturer_gender = "f";
-//        }
 
         Intent intent = getIntent();
         action = intent.getStringExtra("action");

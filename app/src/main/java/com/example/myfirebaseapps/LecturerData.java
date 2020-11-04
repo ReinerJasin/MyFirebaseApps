@@ -29,8 +29,6 @@ public class LecturerData extends AppCompatActivity {
     DatabaseReference databaseReference;
     ArrayList<Lecturer> listLecturer = new ArrayList<>();
     RecyclerView rv;
-    RecyclerView.LayoutManager layoutManager;
-    LecturerAdapter adapter;
     AlphaAnimation klik = new AlphaAnimation(1F, 0.6F);
 
     @Override
@@ -45,9 +43,6 @@ public class LecturerData extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("lecturer");
         rv = findViewById(R.id.rv_lect_data);
-
-//        layoutManager = new LinearLayoutManager(this);
-//        rv.setLayoutManager(layoutManager);
 
         fetchLecturerData();
 

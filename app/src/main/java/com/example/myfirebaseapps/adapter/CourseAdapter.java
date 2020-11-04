@@ -9,8 +9,6 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +32,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CardViewVi
 
     private Context context;
     private ArrayList<Course> listCourse;
-    AlphaAnimation klik = new AlphaAnimation(1F, 0.6F);
     Dialog dialog;
     DatabaseReference dbCourse;
 

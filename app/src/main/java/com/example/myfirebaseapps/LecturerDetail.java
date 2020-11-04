@@ -12,7 +12,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Parcelable;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -32,7 +31,6 @@ public class LecturerDetail extends AppCompatActivity {
     AlphaAnimation klik = new AlphaAnimation(1F, 0.6F);
     Toolbar bar;
     DatabaseReference dbLecturer;
-    ArrayList<Lecturer> listLecturer = new ArrayList<>();
     int pos = 0;
     TextView lbl_name, lbl_gender, lbl_expertise;
     Lecturer lecturer;

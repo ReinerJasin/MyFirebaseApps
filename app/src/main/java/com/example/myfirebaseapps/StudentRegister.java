@@ -19,7 +19,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.example.myfirebaseapps.Fragment.AccountFragment;
 import com.example.myfirebaseapps.Model.Student;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -196,14 +195,6 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
                     dialog.cancel();
                     uid = mAuth.getCurrentUser().getUid();
                     Student student = new Student(uid, email, pass, name, nim, gender, age, address);
-//                    Log.d("isi form", uid);
-//                    Log.d("isi form", email);
-//                    Log.d("isi form", pass);
-//                    Log.d("isi form", name);
-//                    Log.d("isi form", nim);
-//                    Log.d("isi form", gender);
-//                    Log.d("isi form", age);
-//                    Log.d("isi form", address);
                     mDatabase.child("student").child(uid).setValue(student).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -216,7 +207,6 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
                     });
                     mAuth.signOut();
                 } else {
-                    Log.d("testing", "nd masuk");
                     try {
                         throw task.getException();
                     } catch (FirebaseAuthInvalidCredentialsException malFormed) {
