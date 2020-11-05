@@ -41,7 +41,7 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
     Dialog dialog;
     TextInputLayout input_email, input_password, input_name, input_nim, input_age, input_address;
     RadioGroup rg_gender;
-    RadioButton radioButton;
+    RadioButton radioButton, radioMale, radioFemale;
     Button btn_register;
     String uid = "", email = "", pass = "", name = "", nim = "", age = "", gender = "male", address = "", action = "";
     int position = 0;
@@ -75,6 +75,8 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
         input_address = findViewById(R.id.input_address);
         btn_register = findViewById(R.id.button_register);
         rg_gender = findViewById(R.id.radioGender);
+        radioMale = findViewById(R.id.radioMale);
+        radioFemale = findViewById(R.id.radioFemale);
 
         btn_register.setEnabled(false);
 
@@ -115,6 +117,12 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
             input_nim.getEditText().setText(student.getNim());
             input_age.getEditText().setText(student.getAge());
             input_address.getEditText().setText(student.getAddress());
+
+            if(student.getGender().equalsIgnoreCase("female")){
+                radioFemale.setChecked(true);
+            }else{
+                radioMale.setChecked(true);
+            }
 
         }
 
@@ -164,6 +172,7 @@ public class StudentRegister extends AppCompatActivity implements TextWatcher {
         params.put("nim", nim);
         params.put("age", age);
         params.put("address", address);
+        params.put("gender", gender);
 
         mDatabase.child("student").child(student.getUid()).updateChildren(params).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
